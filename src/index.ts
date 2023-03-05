@@ -2,6 +2,7 @@ import "./license-loader";
 import {Map} from "@luciad/ria/view/Map";
 import {WMSTileSetModel}  from "@luciad/ria/model/tileset/WMSTileSetModel";
 import {RasterTileSetLayer} from "@luciad/ria/view/tileset/RasterTileSetLayer";
+import {createCitiesLayer} from "./vectorData";
 
 //Create a new map instance, and display it in the div with the "map" ID
 const map = new Map("map");
@@ -16,3 +17,5 @@ WMSTileSetModel.createFromURL(server, [{layer: dataSetName}])
   //and add the layer to the map
   map.layerTree.addChild(layer);
 });
+
+createCitiesLayer(map);
